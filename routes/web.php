@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Livewire\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/datatable', function () {
+    return view('datatableProduct');
+});
+
+//Route::get('/datatable', Product::class);
+
 Route::resource('category',CategoryController::class);
+Route::resource('product',ProductController::class);
+
