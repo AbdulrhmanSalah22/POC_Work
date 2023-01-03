@@ -27,14 +27,14 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        Category
+                        Product
                     </div>
 
                     <div class="card-body">
-                        <form action="{{route('category.store')}}" method="post">
+                        <form action="{{route('product.store')}}" method="post">
                             @csrf
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">New Category Name</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">New Product Name</label>
 
                                 <div class="col-md-6 my-2">
                                     <input id="name" type="text" class="form-control" name="name" required autofocus>
@@ -47,18 +47,13 @@
                             </div>
                             <div class="form-group row">
                                 <label for="parent" class="col-md-4 col-form-label text-md-right">
-                                    Parent Category
+                                    Select Category
                                 </label>
 
                                 <div class="col-md-6 my-2">
-{{--                                    <select class="js-example-basic-single" name="state">--}}
-{{--                                        @foreach($categories as $category)--}}
-{{--                                            <option value="{{$category -> id}}">{{$category->name}}</option>--}}
-{{--                                        @endforeach--}}
-{{--                                    </select>--}}
 
-                                    <select id="parent" class="form-control" name="parent">
-                                        <option value="null" selected> No Parents -- As Root</option>
+                                    <select id="parent" class="form-control" name="category_id">
+                                        <option value="null" selected> Select One .. </option>
                                         @foreach($categories as $category)
                                             <option value="{{$category -> id}}">{{$category->name}}</option>
                                         @endforeach
@@ -69,7 +64,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Save Category
+                                        Save Product
                                     </button>
                                 </div>
                             </div>

@@ -2,11 +2,10 @@
 
 namespace App\Repositories;
 
+use App\Models\Product;
 use Prettus\Repository\Eloquent\BaseRepository;
-use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\ProductRepository;
-use App\Entities\Product;
-use App\Validators\ProductValidator;
+
+
 
 /**
  * Class ProductRepositoryEloquent.
@@ -37,7 +36,7 @@ class ProductRepositoryEloquent extends BaseRepository implements ProductReposit
 
     public function findById($productId)
     {
-        return Product::with('category')->where('id',$productId)->findOrFail($productId);
+        return Product::with('category')->findOrFail($productId);
     }
 
     public function delete($productId)
