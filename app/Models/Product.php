@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\ProductCreatedEvent;
 use App\Http\QueryBuilders\ProductBuilder;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,6 +14,10 @@ class Product extends Model
 
     protected $fillable = ['name', 'category_id'];
     protected $hidden = ['created_at', 'updated_at'];
+
+    protected $dispatchesEvents = [
+      'created' => ProductCreatedEvent::class
+    ];
 
     public function category()
     {
